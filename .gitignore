@@ -1,0 +1,56 @@
+# ───────────────────────────────
+# Ignorar archivos de sistemas operativos
+# ───────────────────────────────
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.nfs*
+
+# ───────────────────────────────
+# Ignorar archivos de Visual Studio Code
+# ───────────────────────────────
+
+.vscode/
+.vscode-test/
+.history/
+
+# Archivos de extensiones
+*.code-workspace
+
+# Logs de VSCode y temporales
+*.log
+
+# ───────────────────────────────
+# Otros ignorables comunes (opcional pero recomendado)
+# ───────────────────────────────
+
+# Node (si usas JavaScript/TypeScript)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Entornos virtuales Python (si los llegas a usar)
+venv/
+.env/
+*.pyc
+__pycache__/
+
+# Salidas de build generales
+dist/
+build/
+out/
