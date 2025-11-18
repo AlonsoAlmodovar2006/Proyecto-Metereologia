@@ -54,3 +54,5 @@ __pycache__/
 dist/
 build/
 out/
+
+/vendor/
