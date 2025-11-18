@@ -4,6 +4,7 @@ namespace App\Models;
 
 use PDO;
 use PDOException;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 class Database
 {
@@ -12,58 +13,26 @@ class Database
     public function __construct($host, $port, $dbname, $username, $password)
     {
         try {
-            $this->pdo = new PDO("mysql:host={$host};port={$port};dbname={$dbname};charset=utf8", $username, $password);
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            error_log("Se conecto correctamente");
-        } catch (PDOException $e) {
+            $capsule = new Capsule();
+
+            $capsule->addConnection([
+                "driver" => "mysql",
+                "host" => "$host",
+                "database" => $dbname,
+                "username" => $username,
+                "password" => $password,
+                "charset" => "utf8",
+                "collation" => "utf8_unicode_ci",
+                "prefix" => "",
+            ]);
+            $capsule->setAsGlobal();
+            $capsule->bootEloquent();
+
+            error_log("Coneccion exitosa");
+        } catch (\Exception $e) {
             die("Error al conectar: " . $e->getMessage());
         }
     }
 
-    public function query($sql, $params = [])
-    {
-        try {
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute($params);
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            die("Error en la consulta: " . $e->getMessage());
-        }
-    }
-
-    public function execute($sql, $params = [])
-    {
-        try {
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute($params);
-            return $stmt->rowCount();
-        } catch (PDOException $e) {
-            die("Error en la ejecucion: " . $e->getMessage());
-        }
-    }
-
-    public function loadDeps()
-    {
-        return $this->query("SELECT * FROM depart");
-    }
-
-    public function loadDep($id)
-    {
-        return $this->query("SELECT * FROM depart WHERE depart_no=:id", [":id" => $id]);
-    }
-
-    public function createDep($a, $b, $c)
-    {
-        return $this->execute("INSERT INTO depart VALUES (:a, :b, :c)", [":a" => $a, ":b" => $b, ":c" => $c]);
-    }
-
-    public function updateDep($a, $b, $c)
-    {
-        return $this->execute("UPDATE depart SET dnombre= :b, loc= :c WHERE depart_no = :a", [":a" => $a, ":b" => $b, ":c" => $c]);
-    }
-
-    public function deleteDep($id)
-    {
-        return $this->execute("DELETE FROM depart WHERE depart_no = :id", [":id" => $id]);
-    }
+    
 }
