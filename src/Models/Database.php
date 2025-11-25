@@ -2,14 +2,12 @@
 
 namespace App\Models;
 
-use PDO;
-use PDOException;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use App\Models\Datos1;
+use App\Models\Precipitacion;
 
 class Database
 {
-    private $pdo;
-
     public function __construct($host, $port, $dbname, $username, $password)
     {
         try {
@@ -34,5 +32,7 @@ class Database
         }
     }
 
-    
+    public function listarPrecipitacion() {
+        return $precipitaciones = Precipitacion::all();
+    }
 }

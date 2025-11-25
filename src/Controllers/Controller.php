@@ -7,7 +7,6 @@ use Dotenv\Dotenv;
 
 class Controller
 {
-    //Instanciar el modelo
     private $myModel;
 
     public function __construct()
@@ -20,6 +19,7 @@ class Controller
 
     public function index()
     {
+        $precipitaciones = $this->myModel->listarPrecipitacion();
         include __DIR__ . "/../Views/home.html";
     }
 }
