@@ -32,7 +32,12 @@ class Database
         }
     }
 
-    public function listarPrecipitacion() {
-        return $precipitaciones = Precipitacion::all();
+    public function listarPrecipitacion()
+    {
+        return Precipitacion::all();
+    }
+
+    public function insertarPresipitacion(){
+        
     }
 }
