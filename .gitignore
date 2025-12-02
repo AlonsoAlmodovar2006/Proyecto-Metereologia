@@ -46,7 +46,7 @@ yarn-error.log
 
 # Entornos virtuales Python (si los llegas a usar)
 venv/
-.env
+.env/
 *.pyc
 __pycache__/
 
