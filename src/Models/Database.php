@@ -3,8 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use App\Models\Datos1;
-use App\Models\Precipitacion;
+use App\Models\Datos;
 
 class Database
 {
@@ -30,9 +29,5 @@ class Database
         } catch (\Exception $e) {
             die("Error al conectar: " . $e->getMessage());
         }
-    }
-
-    public function listarPrecipitacion() {
-        return $precipitaciones = Precipitacion::all();
     }
 }
