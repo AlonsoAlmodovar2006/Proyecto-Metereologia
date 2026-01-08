@@ -7,6 +7,7 @@ use App\Models\Datos1;
 use App\Models\Precipitacion;
 use DateTime;
 use Illuminate\Support\Facades\Date;
+use Carbon\Carbon;
 
 class Database
 {
@@ -39,7 +40,9 @@ class Database
         $fechaActual = new DateTime();
         $fecha24hAtras = new DateTime();
         $fecha24hAtras->modify("-24 hours");
+        error_log("==========================================");
+        error_log(Carbon::parse($fecha24hAtras));
 
-        return Datos::whereBetween("fechaSistema", [$fecha24hAtras, $fechaActual])->get();
+        return Datos::whereBetween("fechaSistema", [Carbon::parse($fecha24hAtras), Carbon::parse($fechaActual)])->get();
     }
 }
