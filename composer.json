@@ -16,6 +16,9 @@
     "scripts": {
         "start" : "php -S localhost:8000 -t public"
     },
+    "config": {
+        "process-timeout": 0
+    },
     "minimum-stability": "stable",
     "require": {
         "illuminate/database": "^12.38",

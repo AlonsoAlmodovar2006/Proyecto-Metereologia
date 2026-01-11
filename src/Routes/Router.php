@@ -14,6 +14,7 @@ class Router
     public function loadRoutes()
     {
         $this->routes["/"] = ["controller" => "Controller", "action" => "index"];
+        $this->routes["/ultimas24h"] = ["controller" => "OrwinController", "action" => "obtenerDatosUltimas24h"];
     }
 
 

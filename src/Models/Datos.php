@@ -11,4 +11,7 @@ class Datos extends Model
     public $timestamps = false;
 
     protected $fillable = ['fechaSistema', 'temperatura', 'presion', 'humedad', 'viento', 'lluvia'];
+    protected $casts = [
+        'fechaSistema' => 'datetime', 
+    ];
 }
