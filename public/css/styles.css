@@ -1,3 +1,19 @@
+:root {
+  --prieto-green: #8cc63f;
+  --prieto-green-dark: #76a935;
+  --prieto-green-light: #f4faeb;
+  --temp-color: #d84315;
+  --hum-color: #0277bd;
+  --press-color: #6a1b9a;
+  --wind-color: #37474f;
+  --rain-color: #283593;
+  --prieto-dark: #1a1d21;
+}
+
+.navbar {
+  border-bottom: 2px solid var(--prieto-green);
+}
+
 .img-logo {
   width: 70px;
   height: 70px;
