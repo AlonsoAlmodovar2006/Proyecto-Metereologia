@@ -1,74 +1,29 @@
-// (async function () {
-//   const data = [
-//     { year: 2010, count: 11 },
-//     { year: 2011, count: 20 },
-//     { year: 2012, count: 15 },
-//     { year: 2013, count: 25 },
-//     { year: 2014, count: 22 },
-//     { year: 2015, count: 30 },
-//     { year: 2016, count: 28 },
-//   ];
-
-//   new Chart(
-//     document.getElementById('acquisitions'),
-//     {
-//       type: 'bar',
-//       data: {
-//         labels: data.map(row => row.year),
-//         datasets: [
-//           {
-//             label: 'Acquisitions by year',
-//             data: data.map(row => row.count)
-//           }
-//         ]
-//       }
-//     }
-//   );
-// })();
-
-// const ctx = document.getElementById('tabla');
-
-// new Chart(ctx, {
-//   type: 'line',
-//   data: {
-//     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//     datasets: [{
-//       label: '# of Votes',
-//       data: [[10, 20], [15, null], [20, 10], [1, 2], [4, 2]],
-//       borderWidth: 1
-//     }]
-//   },
-//   options: {
-//     scales: {
-//       y: {
-//         beginAtZero: true
-//       }
-//     }
-//   }
-// });
 document.addEventListener("DOMContentLoaded", () => {
-  const datos = JSON.parse(document.querySelector("#datos").innerHTML);
-
-  // datos.foreach(element => element.fechaSistema = new Date(element.fechaSistema));
-  console.log(datos);
-
-  (async function () {
-    const data = datos;
-
-    new Chart(
-      document.getElementById('acquisitions'),
-      {
-        type: 'bar',
-        data: {
-          labels: data.map(row => row.fechaSistema),
-          datasets: [
-            {
-              label: 'Humedad',
-              data: data.map(row => row.humedad)
-            }
-          ]
-        }
-      }
-    );
-  })();
+  cargarDatosUltimas24horas();
 });
+
+function cargarDatosUltimas24horas() {
+  const datosElement = document.querySelector("#datos");
+  if (!datosElement) {
+    console.log("Error al obtener los datos");
+    return;
+  }
+
+  const datos = JSON.parse(datosElement.innerHTML);
+
+  if (!datos || datos.length === 0) {
+    console.log("Error al obtener los datos");
+    return;
+  }
+
+  const ultimo = datos[datos.length - 1];
+
+  document.querySelector('#current-temp').innerText = `${ultimo.temperatura}°C`;
+  document.querySelector('#current-humidity').innerText = `${ultimo.humedad}%`;
+  document.querySelector('#current-pressure').innerText = `${ultimo.presion} hPa`;
+  document.querySelector('#current-wind').innerText = `${ultimo.viento} km/h`;
+  document.querySelector('#current-rain').innerText = `${ultimo.lluvia ?? 0} mm`;
+
+  const fechaUltimo = new Date(ultimo.fechaSistema);
+  document.querySelector('#last-update').innerText = fechaUltimo.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+}
