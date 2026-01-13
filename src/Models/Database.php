@@ -32,7 +32,15 @@ class Database
         }
     }
 
-    public function listarPrecipitacion() {
-        return $precipitaciones = Precipitacion::all();
+    public function obtenerTemperatura()
+    {
+        $ultimoRegistro = Datos::orderBy('fechaSistema', 'desc')->first();
+
+        // 2. Verificamos si existe y devolvemos solo la temperatura
+        if ($ultimoRegistro) {
+            return $ultimoRegistro->temperatura;
+        }
+
+        return "No hay datos";
     }
 }
