@@ -12,6 +12,7 @@
 
 .navbar {
   border-bottom: 2px solid var(--prieto-green);
+}
 .card {
   padding: 1rem;
   border-radius: 18px;
