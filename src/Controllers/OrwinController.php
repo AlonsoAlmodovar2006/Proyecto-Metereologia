@@ -27,7 +27,7 @@ class OrwinController
     {
         $datos = $this->myModel->pedirUltimas24h();
         error_log($datos);
-        echo $this->twig->render("home.html.twig", compact("datos"));
+        echo $this->twig->render("24horas.html.twig", compact("datos"));
     }
 
     public function obtenerDatosHumedad()
