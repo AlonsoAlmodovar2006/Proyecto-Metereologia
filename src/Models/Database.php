@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use App\Models\Datos1;
+use App\Models\Datos;
 use App\Models\Precipitacion;
 use DateTime;
 use Illuminate\Support\Facades\Date;
