@@ -15,6 +15,7 @@ class Router
     {
         $this->routes["/"] = ["controller" => "Controller", "action" => "index"];
         $this->routes["/ultimas24h"] = ["controller" => "OrwinController", "action" => "obtenerDatosUltimas24h"];
+        $this->routes["/humedad"] = ["controller" => "OrwinController", "action" => "obtenerDatosHumedad"];
     }
 
 
