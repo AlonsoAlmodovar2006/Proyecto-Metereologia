@@ -27,6 +27,12 @@ class Controller
         
     }
 
+    public function obtenerTemperatura(){
+
+        $temperatura=$this->myModel->obtenerTemperatura();
+
+        echo $this->twig->render("temperatura.html.twig",['datos'=>$temperatura]);
+    }
 
     
 
