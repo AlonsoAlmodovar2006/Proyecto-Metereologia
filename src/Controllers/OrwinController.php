@@ -30,9 +30,10 @@ class OrwinController
         echo $this->twig->render("home.html.twig", compact("datos"));
     }
 
-    public function obtenerDatosHumedad() {
+    public function obtenerDatosHumedad()
+    {
         $datos = $this->myModel->pedirDatosHumedad();
         error_log($datos);
-        echo $datos;
+        echo $this->twig->render("humedad.html.twig", compact("datos"));
     }
 }

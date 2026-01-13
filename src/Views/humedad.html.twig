@@ -1,0 +1,14 @@
+{% extends "partials/layout.html.twig" %}
+
+{% block content %}
+	<div class="container">
+		<canvas id="humedad"></canvas>
+
+	</div>
+	<div class="d-none" id="datos">
+		{{ datos }}
+	</div>
+{% endblock %}
+{% block javascripts %}
+	<script src="/js/humedad.js" type="text/javascript"></script>
+{% endblock %}
