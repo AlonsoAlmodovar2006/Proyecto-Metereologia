@@ -43,7 +43,7 @@ class Database
             return $ultimoRegistro->temperatura;
         }
         return "No hay datos";
-      
+    }
     public function pedirUltimas24h()
     {
         $fechaActual = new DateTime();
