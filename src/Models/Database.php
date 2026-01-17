@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use App\Models\Datos1;
+use App\Models\Datos;
 use App\Models\Precipitacion;
 use DateTime;
 use Illuminate\Support\Facades\Date;
@@ -44,5 +44,21 @@ class Database
         error_log(Carbon::parse($fecha24hAtras));
 
         return Datos::whereBetween("fechaSistema", [Carbon::parse($fecha24hAtras), Carbon::parse($fechaActual)])->get();
+    }
+
+    public function pedirDatosHumedad()
+    {
+        return Datos::select("fechaSistema", "humedad")->get();
+    }
+    public function pedirDatosHumedadEntre($inicio, $final)
+    {
+        if (isset($inicio) && isset($final)) {
+            return Datos::whereBetween("fechaSistema", [$inicio, $final])->get();
+        } elseif (isset($inicio)) {
+            return Datos::where("fechaSistema", ">", $inicio)->get();
+        } elseif (isset($final)) {
+            return Datos::where("fechaSistema", "<", $final)->get();
+        }
+        return Datos::select("fechaSistema", "humedad")->get();
     }
 }
