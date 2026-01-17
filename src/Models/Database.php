@@ -48,6 +48,17 @@ class Database
 
     public function pedirDatosHumedad()
     {
-        return Datos::select("fechaSistema","humedad")->get();
+        return Datos::select("fechaSistema", "humedad")->get();
+    }
+    public function pedirDatosHumedadEntre($inicio, $final)
+    {
+        if (isset($inicio) && isset($final)) {
+            return Datos::whereBetween("fechaSistema", [$inicio, $final])->get();
+        } elseif (isset($inicio)) {
+            return Datos::where("fechaSistema", ">", $inicio)->get();
+        } elseif (isset($final)) {
+            return Datos::where("fechaSistema", "<", $final)->get();
+        }
+        return Datos::select("fechaSistema", "humedad")->get();
     }
 }

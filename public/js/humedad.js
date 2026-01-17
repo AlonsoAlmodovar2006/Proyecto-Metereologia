@@ -12,12 +12,32 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarHumedad();
 });
 
+(() => {
+    'use strict'
+
+    const forms = document.querySelectorAll('.needs-validation')
+
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+        }, false)
+    })
+})()
+
 function cargarHumedad() {
     const datosElement = JSON.parse(document.querySelector("#datos").innerHTML);
 
     const horas = datosElement.map(row => {
         const fecha = new Date(row.fechaSistema);
         return fecha.toLocaleTimeString('es-ES', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
             hour: '2-digit',
             minute: '2-digit',
             hour12: false
@@ -47,16 +67,7 @@ function crearGrafico(data, element, horas, colors) {
             },
             options: {
                 responsive: true,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: `${tituloFormateado}`,
-                        font: {
-                            size: 25,
-                            weight: 'bold',
-                        },
-                    }
-                }
+                
             }
         }
     );

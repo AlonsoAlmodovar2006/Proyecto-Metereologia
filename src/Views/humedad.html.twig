@@ -1,9 +1,22 @@
 {% extends "partials/layout.html.twig" %}
 
 {% block content %}
-	<div class="container">
-		<canvas id="humedad"></canvas>
-
+	<div class="container py-3">
+		<h2 class="text-center pb-3">Humedad</h2>
+		<form action="/humedad" method="post" class="row g-3 needs-validation pb-3 justify-content-center" novalidate>
+			<div class="col-md-3">
+				<label for="inicio" class="form-label fs-5">Fecha de inicio</label>
+				<input type="date" class="form-control" name="inicio" id="inicio">
+			</div>
+			<div class="col-md-3">
+				<label for="final" class="form-label fs-5">Fecha de fin</label>
+				<input type="date" class="form-control" name="final" id="final">
+			</div>
+			<div class="col-md-1 align-self-end">
+				<button class="btn btn-primary px-4" type="submit">Filtrar</button>
+			</div>
+		</form>
+		<canvas id="humedad" class=" pb-3"></canvas>
 	</div>
 	<div class="d-none" id="datos">
 		{{ datos }}
