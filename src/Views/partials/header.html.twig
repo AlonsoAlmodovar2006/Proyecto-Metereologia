@@ -1,28 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white py-3  bg-body-tertiary">
-	<div class="container">
-		<a class="navbar-brand d-flex align-items-center" href="/">
-			<img src="/img/logoN.png" alt="logo prieto" class="img-logo me-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+	<div class="container-fluid px-4">
+		<a class="navbar-brand fw-bold d-flex align-items-center gap-3" href="/">
+			<img src="/img/logoN.png" alt="logo prieto" class="img-logo" style="max-height: 100px;">
 			<div class="d-none d-sm-block">
-				<h1 class="fs-4 mb-0 fw-bold text-dark text-uppercase">Estación Meteorológica</h1>
-				<small class="text-muted">IES Gregorio Prieto</small>
+				<h1 class="fs-5 mb-0 fw-bold text-uppercase">Estación Meteorológica</h1>
+				<small class="text-secondary">IES Gregorio Prieto</small>
 			</div>
 			<div class="d-block d-sm-none">
-				<h1 class="fs-5 mb-0 fw-bold text-dark text-uppercase">Estación Meteo</h1>
-				<small class="text-muted">Gregorio Prieto</small>
+				<h1 class="fs-6 mb-0 fw-bold text-primary text-uppercase">Estación Meteo</h1>
+				<small class="text-secondary">Gregorio Prieto</small>
 			</div>
 		</a>
-		
-		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-			<ul class="navbar-nav align-items-center">
-				<li class="nav-item px-2">
-					<a class="nav-link active" href="/">Inicio</a>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ms-auto">
+				<li class="nav-item">
+					<a class="nav-link fw-500 active" aria-current="page" href="/">Inicio</a>
 				</li>
-				<li class="nav-item px-2">
-					<a class="nav-link" href="#">Histórico</a>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle fw-500" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Mediciones
+					</a>
+					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="/temperatura">Temperatura</a></li>
+						<li><a class="dropdown-item" href="/presion">Presión</a></li>
+						<li><a class="dropdown-item" href="/humedad">Humedad</a></li>
+						<li><a class="dropdown-item" href="/viento">Viento</a></li>
+						<li><a class="dropdown-item" href="/lluvia">Lluvia</a></li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link fw-500" href="/proyectoAnterior">Proyecto 2020-21</a>
 				</li>
 			</ul>
 		</div>
