@@ -1,90 +1,144 @@
 {% extends "partials/layout.html.twig" %}
 
 {% block content %}
-	<!-- Contexto -->
-	<div class="container">
-		<h4 class="display-6 fw-bold mb-2">Proyecto 2025-26</h4>
-		<p class="text-start">
-			Motivados por la novedosa FP Dual, se volvió a retomar un proyecto iniciado en la 2020-21 para actualizarlo y mejorarlo. El proyecto consiste en la construcción de una estación metereológica en el IES Gregorio Prieto (Valdepeñas, Ciudad Real). La estación recoge datos, como la cantidad de precipitación o el viento de cada día, y se envían a un servidor localizado en ese mismo centro. Para así construir una web donde mostrar los datos y revelar al mundo lo capacitados que estamos los alumnos de poder poner nuestro granito de arena en el maravilloso mundo del Internet.
-		</p>
-	</div>
+<!-- Contexto -->
+<div class="container">
+	<h4 class="display-6 fw-bold mb-2">Proyecto 2025-26</h4>
+	<p class="text-start">
+		Motivados por la novedosa FP Dual, se volvió a retomar un proyecto iniciado en la 2020-21 para actualizarlo y
+		mejorarlo. El proyecto consiste en la construcción de una estación metereológica en el IES Gregorio Prieto
+		(Valdepeñas, Ciudad Real). La estación recoge datos, como la cantidad de precipitación o el viento de cada día,
+		y se envían a un servidor localizado en ese mismo centro. Para así construir una web donde mostrar los datos y
+		revelar al mundo lo capacitados que estamos los alumnos de poder poner nuestro granito de arena en el
+		maravilloso mundo del Internet.
+	</p>
+</div>
 
-	<!-- Mejoras -->
-	<!-- Integrantes -->
-		<!-- https://getbootstrap.esdocu.com/docs/5.1/examples/album/ -->
-	<!-- Fotos -->
-
-	<!-- ÚLTIMAS 24 HORAS -->
-	<div class="container"> 
-		<div class="row align-items-center py-3">
-			<div class="col-lg-8">
-				<h4 class="display-6 fw-bold mb-2">Clima en las últimas 24h</h4>
-			</div>
-			<div class="col-lg-4 text-lg-end">
-				<div class="p-3 d-inline-block">
-					<div class="d-flex align-items-center">
-						<div class="me-3 fs-2 text-success">
-							<i class="bi bi-clock"></i>
-						</div>
-						<div class="text-start">
-							<div class="small fw-bold text-uppercase opacity-50">Última actualización</div>
-							<div id="last-update" class="fw-bold">--:--</div>
-						</div>
+<!-- ÚLTIMAS 24 HORAS -->
+<div class="container">
+	<div class="row align-items-center py-3">
+		<div class="col-lg-8">
+			<h4 class="display-6 fw-bold mb-2">El clima en las últimas 24h</h4>
+		</div>
+		<div class="col-lg-4 text-lg-end">
+			<div class="p-3 d-inline-block">
+				<div class="d-flex align-items-center">
+					<div class="me-3 fs-2 text-success">
+						<i class="bi bi-clock"></i>
+					</div>
+					<div class="text-start">
+						<div class="small fw-bold text-uppercase opacity-50">Última actualización</div>
+						<div id="last-update" class="fw-bold">--:--</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- CARDS ÚLTIMAS 24 HORAS -->
-	<div class="container">
-		<div class="row g-4 pb-3">
-			<!-- CARD TEMPERATURA -->
-			<div class="col-12 col-md-6 col-lg">
-				<div class="card bg-temp shadow-sm h-100">
-					<i class="bi bi-thermometer-half"></i>
-					<div class="value" id="current-temp">--°C</div>
-					<div class="label">Temperatura</div>
+</div>
+<!-- CARDS ÚLTIMAS 24 HORAS -->
+<div class="container">
+	<div class="row g-4 pb-3">
+		<!-- CARD TEMPERATURA -->
+		<div class="col-12 col-md-6 col-lg">
+			<div class="card bg-temp shadow-sm h-100">
+				<i class="bi bi-thermometer-half"></i>
+				<div class="value" id="current-temp">--°C</div>
+				<div class="label">Temperatura</div>
+			</div>
+		</div>
+		<!-- CARD HUMEDAD -->
+		<div class="col-12 col-md-6 col-lg">
+			<div class="card bg-hum shadow-sm h-100">
+				<i class="bi bi-moisture"></i>
+				<div class="value" id="current-humidity">--%</div>
+				<div class="label">Humedad</div>
+			</div>
+		</div>
+		<!-- CARD PRESIÓN -->
+		<div class="col-12 col-md-6 col-lg">
+			<div class="card bg-press shadow-sm h-100">
+				<i class="bi bi-speedometer2"></i>
+				<div class="value" id="current-pressure">-- hPa</div>
+				<div class="label">Presión</div>
+			</div>
+		</div>
+		<!-- CARD VIENTO -->
+		<div class="col-12 col-md-6 col-lg">
+			<div class="card bg-wind shadow-sm h-100">
+				<i class="bi bi-wind"></i>
+				<div class="value" id="current-wind">-- km/h</div>
+				<div class="label">Viento</div>
+			</div>
+		</div>
+		<!-- CARD LLUVIA -->
+		<div class="col-12 col-md-6 col-lg">
+			<div class="card bg-rain shadow-sm h-100">
+				<i class="bi bi-cloud-rain"></i>
+				<div class="value" id="current-rain">-- mm</div>
+				<div class="label">Lluvia</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="d-none" id="datos">
+	{{ datos }}
+</div>
+
+<!-- Mejoras -->
+<!-- Integrantes -->
+<div class="container">
+	<h4 class="display-6 fw-bold mb-2">Integrantes del Grupo B</h4>
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+		<div class="col">
+			<div class="card shadow-sm h-100">
+				<img src="img/logo.png" class="card-img-top img-fluid" alt="Alonso Almodóvar">
+				<div class="card-body text-center">
+					<h5 class="card-title">Alonso Almodóvar</h5>
+					<p class="card-text text-muted">
+						Esta es una tarjeta más amplia con texto de apoyo a continuación como una introducción natural a
+						contenido adicional.
+					</p>
+				</div>
+				<div class="card-footer bg-transparent border-0 text-center">
+					<small class="text-muted">2006</small>
 				</div>
 			</div>
-			<!-- CARD HUMEDAD -->
-			<div class="col-12 col-md-6 col-lg">
-				<div class="card bg-hum shadow-sm h-100">
-					<i class="bi bi-moisture"></i>
-					<div class="value" id="current-humidity">--%</div>
-					<div class="label">Humedad</div>
+		</div>
+		<div class="col">
+			<div class="card shadow-sm h-100">
+				<img src="img/logo.png" class="card-img-top img-fluid" alt="Mari Carmen García">
+				<div class="card-body text-center">
+					<h5 class="card-title">Mari Carmen García</h5>
+					<p class="card-text text-muted">
+						Esta es una tarjeta más amplia con texto de apoyo a continuación como una introducción natural a
+						contenido adicional.
+					</p>
+				</div>
+				<div class="card-footer bg-transparent border-0 text-center">
+					<small class="text-muted">2006</small>
 				</div>
 			</div>
-			<!-- CARD PRESIÓN -->
-			<div class="col-12 col-md-6 col-lg">
-				<div class="card bg-press shadow-sm h-100">
-					<i class="bi bi-speedometer2"></i>
-					<div class="value" id="current-pressure">-- hPa</div>
-					<div class="label">Presión</div>
+		</div>
+		<div class="col">
+			<div class="card shadow-sm h-100">
+				<img src="img/logo.png" class="card-img-top img-fluid" alt="Orwin Zabaleta">
+				<div class="card-body text-center">
+					<h5 class="card-title">Orwin Zabaleta</h5>
+					<p class="card-text text-muted">
+						Esta es una tarjeta más amplia con texto de apoyo a continuación como una introducción natural a
+						contenido adicional.
+					</p>
 				</div>
-			</div>
-			<!-- CARD VIENTO -->
-			<div class="col-12 col-md-6 col-lg">
-				<div class="card bg-wind shadow-sm h-100">
-					<i class="bi bi-wind"></i>
-					<div class="value" id="current-wind">-- km/h</div>
-					<div class="label">Viento</div>
-				</div>
-			</div>
-			<!-- CARD LLUVIA -->
-			<div class="col-12 col-md-6 col-lg">
-				<div class="card bg-rain shadow-sm h-100">
-					<i class="bi bi-cloud-rain"></i>
-					<div class="value" id="current-rain">-- mm</div>
-					<div class="label">Lluvia</div>
+				<div class="card-footer bg-transparent border-0 text-center">
+					<small class="text-muted">2006</small>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="d-none" id="datos">
-		{{ datos }}
-	</div>
+</div>
+<!-- Fotos -->
 
 {% endblock %}
 {% block javascripts %}
-	<script src="/js/app.js" type="text/javascript"></script>
+<script src="/js/app.js" type="text/javascript"></script>
 {% endblock %}
