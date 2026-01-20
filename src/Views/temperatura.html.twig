@@ -1,4 +1,13 @@
-{% extends "partials/layout.html.twig" %}
+{% extends "layout.html.twig" %}
 {% block content %}
-	
+    <div style="width: 70%; margin: 50px auto;">
+        <h2>Temperatura</h2>
+        
+        <canvas id="temperatura"></canvas>
+    </div>
+
+    <script id="datos" type="application/json">
+        {{ datos|json_encode|raw }}
+    </script>
+
 {% endblock %}

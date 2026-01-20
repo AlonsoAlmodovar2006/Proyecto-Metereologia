@@ -14,7 +14,7 @@ class Router
     public function loadRoutes()
     {
         $this->routes["/"] = ["controller" => "Controller", "action" => "index"];
-        $this->routes["/temperatura"]=["controller"=>"MCarmenController","action"=>"obtenerTemperatura"];
+        $this->routes["/temperatura"]=["controller"=>"MCarmenController","action"=>"temperatura"];
         $this->routes['/datos'] = ["controller" => "AlonsoController", "action" => "dividirRuta"];
         $this->routes["/ultimas24h"] = ["controller" => "OrwinController", "action" => "obtenerDatosUltimas24h"];
     }
@@ -31,7 +31,7 @@ class Router
                 $controller = new $controllerClass();
                 $controller->$action($_REQUEST);
             } else {
-                echo "Error 404 1";
+                echo "Error 404 1: No se encuentra la clase <b>$controllerClass</b> o el método <b>$action</b>";
             }
         } else {
             echo "Error 404 0";
