@@ -17,11 +17,17 @@ class Router
         $this->routes["/temperatura"]=["controller"=>"MCarmenController","action"=>"temperatura"];
         $this->routes['/datos'] = ["controller" => "AlonsoController", "action" => "dividirRuta"];
         $this->routes["/ultimas24h"] = ["controller" => "OrwinController", "action" => "obtenerDatosUltimas24h"];
+        $this->routes["/presion"] = ["controller" => "OrwinController", "action" => "obtenerDatosPresion"];
+        $this->routes["/humedad"] = ["controller" => "OrwinController", "action" => "obtenerDatosHumedad"];
+        $this->routes["/viento"] = ["controller" => "AlonsoController", "action" => "obtenerDatosViento"];
+        $this->routes["/lluvia"] = ["controller" => "x", "action" => "x"];
+        $this->routes["/proyectoAnterior"] = ["controller" => "AlonsoController", "action" => "lanzarProyectoAnterior"];
+
     }
 
     public function handleRequest()
     {
-        $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH); //Para recordar.
+        $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH); 
 
         if ($this->routes[$path]) {
             $route = $this->routes[$path];
