@@ -11,7 +11,7 @@ class AlonsoController extends Controller
 {
     private $myModel;
     private $twig;
-    
+
     public function __construct()
     {
         $dotenv = Dotenv::createImmutable(__DIR__ . "/../..");
@@ -34,7 +34,8 @@ class AlonsoController extends Controller
         echo $this->twig->render("proyectoAnterior.html.twig");
     }
 
-    public function obtenerDatosViento() {
+    public function obtenerDatosViento()
+    {
         $inicio = filter_input(INPUT_POST, 'inicio', FILTER_SANITIZE_SPECIAL_CHARS);
         $final = filter_input(INPUT_POST, 'final', FILTER_SANITIZE_SPECIAL_CHARS);
 

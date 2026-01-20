@@ -60,23 +60,23 @@ class Database
 
         return Datos::whereBetween("fechaSistema", [Carbon::parse($fecha24hAtras), Carbon::parse($fechaActual)])->get();
     }
-    
+
     public function pedirDatosPresion()
     {
         return Datos::select("fechaSistema", "presion")->get();
     }
-  
-  
+
+
     public function pedirDatosPresionEntre($inicio, $final)
     {
-      if (isset($inicio) && isset($final)) {
+        if (isset($inicio) && isset($final)) {
             return Datos::whereBetween("fechaSistema", [$inicio, $final])->get();
         } elseif (isset($inicio)) {
             return Datos::where("fechaSistema", ">", $inicio)->get();
         } elseif (isset($final)) {
             return Datos::where("fechaSistema", "<", $final)->get();
         }
-      
+
         return Datos::select("fechaSistema", "presion")->get();
     }
     public function pedirDatosHumedad()
