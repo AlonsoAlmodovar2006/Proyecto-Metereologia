@@ -90,4 +90,22 @@ class Database
 
         return Datos::select("fechaSistema", "humedad")->get();
     }
+
+    public function pedirDatosViento()
+    {
+        return Datos::select("fechaSistema", "viento")->get();
+    }
+
+    public function pedirDatosVientoEntre($inicio, $final)
+    {
+        if (isset($inicio) && isset($final)) {
+            return Datos::whereBetween("fechaSistema", [$inicio, $final])->get();
+        } elseif (isset($inicio)) {
+            return Datos::where("fechaSistema", ">", $inicio)->get();
+        } elseif (isset($final)) {
+            return Datos::where("fechaSistema", "<", $final)->get();
+        }
+
+        return Datos::select("fechaSistema", "viento")->get();
+    }
 }

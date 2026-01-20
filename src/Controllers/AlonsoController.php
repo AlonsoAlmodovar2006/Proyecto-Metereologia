@@ -33,4 +33,23 @@ class AlonsoController extends Controller
     {
         echo $this->twig->render("proyectoAnterior.html.twig");
     }
+
+    public function obtenerDatosViento() {
+        $inicio = filter_input(INPUT_POST, 'inicio', FILTER_SANITIZE_SPECIAL_CHARS);
+        $final = filter_input(INPUT_POST, 'final', FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $datos = null;
+
+        if ($inicio == "") $inicio = null;
+        if ($final == "") $final = null;
+
+        if ($inicio || $final) {
+            $datos = $this->myModel->pedirDatosVientoEntre($inicio, $final);
+        } else {
+            $datos = $this->myModel->pedirDatosViento();
+        }
+
+        error_log($datos);
+        echo $this->twig->render("viento.html.twig", compact("datos"));
+    }
 }
