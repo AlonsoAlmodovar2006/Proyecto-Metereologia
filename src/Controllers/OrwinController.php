@@ -23,13 +23,6 @@ class OrwinController
         $this->myModel = new Database($_ENV["DB_HOST"], $_ENV["DB_PORT"], $_ENV["DB_DATABASE"], $_ENV["DB_USERNAME"], $_ENV["DB_PASSWORD"]);
     }
 
-    public function obtenerDatosUltimas24h()
-    {
-        $datos = $this->myModel->pedirUltimas24h();
-        error_log($datos);
-        echo $this->twig->render("home.html.twig", compact("datos"));
-    }
-
     public function obtenerDatosPresion()
     {
         $inicio = filter_input(INPUT_POST, 'inicio', FILTER_SANITIZE_SPECIAL_CHARS);
