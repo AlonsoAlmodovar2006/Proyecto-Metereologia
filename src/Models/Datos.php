@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Datos extends Model
@@ -12,6 +14,6 @@ class Datos extends Model
 
     protected $fillable = ['fechaSistema', 'temperatura', 'presion', 'humedad', 'viento', 'lluvia'];
     protected $casts = [
-        'fechaSistema' => 'datetime', 
+        'fechaSistema' => 'datetime',
     ];
 }

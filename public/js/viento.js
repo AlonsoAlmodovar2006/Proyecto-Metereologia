@@ -67,7 +67,7 @@ function crearGrafico(data, element, horas, colors) {
             },
             options: {
                 responsive: true,
-                
+
             }
         }
     );
