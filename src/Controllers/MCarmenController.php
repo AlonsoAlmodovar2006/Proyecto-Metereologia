@@ -8,7 +8,7 @@ use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 
 
-class Controller
+class MCarmenController
 {
     private $myModel;
     private $twig;
@@ -27,11 +27,11 @@ class Controller
         
     }
 
-    public function obtenerTemperatura(){
+    public function temperatura(){
 
         $temperatura=$this->myModel->obtenerTemperatura();
-
-        echo $this->twig->render("temperatura.html.twig",['datos'=>$temperatura]);
+        error_log("sale o no".$temperatura);
+        echo $this->twig->render("temperatura.html.twig",['datos'=>$temperatura->toArray()]);
     }
 
     
