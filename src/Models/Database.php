@@ -37,10 +37,16 @@ class Database
 
     public function obtenerTemperatura()
     {
-        $ultimoRegistro = Datos::orderBy('fechaSistema', 'desc')->first();
-        // 2. Verificamos si existe y devolvemos solo la temperatura
-        if ($ultimoRegistro) {
-            return $ultimoRegistro->temperatura;
+        // 1. Usamos get() en lugar de first() para traer una lista de registros
+        // Traemos los últimos 20 registros ordenados por fecha
+        $registros = Datos::orderBy('fechaSistema', 'desc')
+            ->take(20)
+            ->get();
+
+        // 2. Verificamos si la colección tiene datos
+        if ($registros->isNotEmpty()) {
+            // Devolvemos la colección invertida para que en la gráfica el tiempo vaya de izquierda a derecha
+            return $registros->reverse()->values();
         }
         return "No hay datos";
     }
@@ -54,23 +60,23 @@ class Database
 
         return Datos::whereBetween("fechaSistema", [Carbon::parse($fecha24hAtras), Carbon::parse($fechaActual)])->get();
     }
-    
+
     public function pedirDatosPresion()
     {
         return Datos::select("fechaSistema", "presion")->get();
     }
-  
-  
+
+
     public function pedirDatosPresionEntre($inicio, $final)
     {
-      if (isset($inicio) && isset($final)) {
+        if (isset($inicio) && isset($final)) {
             return Datos::whereBetween("fechaSistema", [$inicio, $final])->get();
         } elseif (isset($inicio)) {
             return Datos::where("fechaSistema", ">", $inicio)->get();
         } elseif (isset($final)) {
             return Datos::where("fechaSistema", "<", $final)->get();
         }
-      
+
         return Datos::select("fechaSistema", "presion")->get();
     }
     public function pedirDatosHumedad()

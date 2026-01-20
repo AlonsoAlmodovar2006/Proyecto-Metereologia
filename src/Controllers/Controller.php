@@ -15,8 +15,8 @@ class Controller
     {
         $dotenv = Dotenv::createImmutable(__DIR__ . "/../..");
         $dotenv->load();
-        $loader=new FilesystemLoader(__DIR__."/../Views");
-        $this->twig=new Environment($loader);
+        $loader = new FilesystemLoader(__DIR__ . "/../Views");
+        $this->twig = new Environment($loader);
 
         $loader = new FilesystemLoader(__DIR__ . '/../Views');
         $this->twig = new Environment($loader);
