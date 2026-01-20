@@ -3,19 +3,23 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Estación Meteorológica del IES Gregorio Prieto - Proyecto Intermodular 2º DAW">
+		<meta name="theme-color" content="#0d6efd">
 		<title>Estación Meteorológica | IES Gregorio Prieto</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 		<link href="/css/styles.css" rel="stylesheet">
 	</head>
-	<body class="d-flex flex-column min-vh-100">
-		<header>
-			{% include "partials/header.html.twig" %}
-		</header>
-		<main class="container-fluid flex-grow-1">
-			{% block content %}{% endblock %}
+
+	<body class="d-flex flex-column min-vh-100 bg-light">
+		{% include "partials/header.html.twig" %}
+		<main class="flex-grow-1 py-4">
+			<div class="container-lg"> 
+				{% block content %}
+				{% endblock %}
+			</div>
 		</main>
-		<footer class="container-fluid bg-body-tertiary mt-auto">
+		<footer class="mt-auto">
 			{% include "partials/footer.html.twig" %}
 		</footer>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
