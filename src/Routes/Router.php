@@ -18,6 +18,7 @@ class Router
         $this->routes['/datos'] = ["controller" => "AlonsoController", "action" => "dividirRuta"];
         $this->routes["/ultimas24h"] = ["controller" => "OrwinController", "action" => "obtenerDatosUltimas24h"];
         $this->routes["/presion"] = ["controller" => "OrwinController", "action" => "obtenerDatosPresion"];
+        $this->routes["/humedad"] = ["controller" => "OrwinController", "action" => "obtenerDatosHumedad"];
     }
 
     public function handleRequest()

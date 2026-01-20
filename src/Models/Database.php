@@ -59,7 +59,26 @@ class Database
     {
         return Datos::select("fechaSistema", "presion")->get();
     }
+  
+  
     public function pedirDatosPresionEntre($inicio, $final)
+    {
+      if (isset($inicio) && isset($final)) {
+            return Datos::whereBetween("fechaSistema", [$inicio, $final])->get();
+        } elseif (isset($inicio)) {
+            return Datos::where("fechaSistema", ">", $inicio)->get();
+        } elseif (isset($final)) {
+            return Datos::where("fechaSistema", "<", $final)->get();
+        }
+      
+        return Datos::select("fechaSistema", "presion")->get();
+    }
+    public function pedirDatosHumedad()
+    {
+        return Datos::select("fechaSistema", "humedad")->get();
+    }
+
+    public function pedirDatosHumedadEntre($inicio, $final)
     {
         if (isset($inicio) && isset($final)) {
             return Datos::whereBetween("fechaSistema", [$inicio, $final])->get();
@@ -68,6 +87,7 @@ class Database
         } elseif (isset($final)) {
             return Datos::where("fechaSistema", "<", $final)->get();
         }
-        return Datos::select("fechaSistema", "presion")->get();
+
+        return Datos::select("fechaSistema", "humedad")->get();
     }
 }
