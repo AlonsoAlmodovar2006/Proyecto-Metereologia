@@ -50,7 +50,8 @@ class OrwinController
         error_log($datos);
         echo $this->twig->render("presion.html.twig", compact("datos"));
     }
-   public function obtenerDatosHumedad() {
+   public function obtenerDatosHumedad()
+   {
         $inicio = filter_input(INPUT_POST, 'inicio', FILTER_SANITIZE_SPECIAL_CHARS);
         $final = filter_input(INPUT_POST, 'final', FILTER_SANITIZE_SPECIAL_CHARS);
   
