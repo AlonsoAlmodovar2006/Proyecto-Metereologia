@@ -26,7 +26,9 @@ class Controller
 
     public function index()
     {        
-        echo $this->twig->render("home.html.twig", [
-        ]);
+        $datos = $this->myModel->pedirUltimas24h();
+        if (!$datos) $datos = [];
+        error_log($datos);
+        echo $this->twig->render("home.html.twig", compact("datos"));
     }
 }
