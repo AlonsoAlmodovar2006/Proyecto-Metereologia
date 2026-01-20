@@ -27,10 +27,10 @@ class OrwinController
     {
         $datos = $this->myModel->pedirUltimas24h();
         error_log($datos);
-        echo $this->twig->render("24horas.html.twig", compact("datos"));
+        echo $this->twig->render("home.html.twig", compact("datos"));
     }
 
-    public function obtenerDatosHumedad()
+    public function obtenerDatosPresion()
     {
         $inicio = filter_input(INPUT_POST, 'inicio', FILTER_SANITIZE_SPECIAL_CHARS);
         $final = filter_input(INPUT_POST, 'final', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -41,6 +41,26 @@ class OrwinController
         if ($final == "") $final = null;
 
         if ($inicio || $final) {
+
+            $datos = $this->myModel->pedirDatosPresionEntre($inicio, $final);
+        } else {
+            $datos = $this->myModel->pedirDatosPresion();
+        }
+
+        error_log($datos);
+        echo $this->twig->render("presion.html.twig", compact("datos"));
+    }
+   public function obtenerDatosHumedad()
+   {
+        $inicio = filter_input(INPUT_POST, 'inicio', FILTER_SANITIZE_SPECIAL_CHARS);
+        $final = filter_input(INPUT_POST, 'final', FILTER_SANITIZE_SPECIAL_CHARS);
+  
+        $datos = null;
+
+        if ($inicio == "") $inicio = null;
+        if ($final == "") $final = null;
+  
+        if ($inicio || $final) {
             $datos = $this->myModel->pedirDatosHumedadEntre($inicio, $final);
         } else {
             $datos = $this->myModel->pedirDatosHumedad();
@@ -48,5 +68,6 @@ class OrwinController
 
         error_log($datos);
         echo $this->twig->render("humedad.html.twig", compact("datos"));
+
     }
 }
