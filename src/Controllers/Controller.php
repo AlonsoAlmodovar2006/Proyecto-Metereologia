@@ -28,7 +28,6 @@ class Controller
     {        
         $datos = $this->myModel->pedirUltimas24h();
         if (!$datos) $datos = [];
-        error_log($datos);
         echo $this->twig->render("home.html.twig", compact("datos"));
     }
 }
