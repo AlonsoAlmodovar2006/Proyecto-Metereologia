@@ -19,7 +19,7 @@ class Router
         $this->routes["/presion"] = ["controller" => "OrwinController", "action" => "obtenerDatosPresion"];
         $this->routes["/humedad"] = ["controller" => "OrwinController", "action" => "obtenerDatosHumedad"];
         $this->routes["/viento"] = ["controller" => "AlonsoController", "action" => "obtenerDatosViento"];
-        $this->routes["/lluvia"] = ["controller" => "x", "action" => "x"];
+        $this->routes["/lluvia"] = ["controller" =>"MCarmenController", "action" => "lluvia"];
         $this->routes["/proyectoAnterior"] = ["controller" => "AlonsoController", "action" => "lanzarProyectoAnterior"];
     }
 
