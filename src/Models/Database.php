@@ -35,6 +35,25 @@ class Database
         }
     }
 
+    public function insertarFila($temperatura, $presion, $humedad, $viento, $lluvia)
+    {
+        try {
+            Datos::create([
+                'temperatura' => $temperatura,
+                'presion'     => $presion,
+                'humedad'     => $humedad,
+                'viento'      => $viento,
+                'lluvia'      => $lluvia,
+            ]);
+            http_response_code(200);
+            echo "OK";
+        } catch (\Exception $e) {
+            http_response_code(500);
+            echo "Error al guardar datos";
+            error_log($e->getMessage());
+        }
+    }
+
     public function obtenerTemperatura()
     {
         // 1. Usamos get() en lugar de first() para traer una lista de registros
