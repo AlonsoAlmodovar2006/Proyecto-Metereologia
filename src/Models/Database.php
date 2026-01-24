@@ -60,8 +60,15 @@ class Database
     }
 
     public function obtenerTemperaturaPorFecha($fechaInicio,$fechaFinal){
-        
+        if(isset($fechaInicio) && isset($fechaFinal)){
+            return Datos::whereBetween("fechaSistema", [$fechaInicio, $fechaFinal])->get();
+        }else if(isset($fechaInicio)){
+            return Datos::where("fechaSistema", ">", $fechaInicio)->get();
+        }else{
+            return Datos::where("fechaSistema", "<", $fechaFinal)->get();
+        }
     }
+    
     public function pedirUltimas24h()
     {
         $fechaActual = new DateTime();
