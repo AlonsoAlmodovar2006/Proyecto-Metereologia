@@ -37,18 +37,11 @@ class Database
 
     public function obtenerTemperatura()
     {
-        // 1. Usamos get() en lugar de first() para traer una lista de registros
-        // Traemos los últimos 20 registros ordenados por fecha
-        $registros = Datos::orderBy('fechaSistema', 'desc')
-            ->take(20)
-            ->get();
+        return Datos::select("fechaSistema", "temperatura")->get();
+    }
 
-        // 2. Verificamos si la colección tiene datos
-        if ($registros->isNotEmpty()) {
-            // Devolvemos la colección invertida para que en la gráfica el tiempo vaya de izquierda a derecha
-            return $registros->reverse()->values();
-        }
-        return "No hay datos";
+    public function obtenerTemperaturaPorFecha($fechaInicio,$fechaFinal){
+        
     }
     public function pedirUltimas24h()
     {
