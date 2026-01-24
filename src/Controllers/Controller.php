@@ -15,8 +15,8 @@ class Controller
     {
         $dotenv = Dotenv::createImmutable(__DIR__ . "/../..");
         $dotenv->load();
-        $loader=new FilesystemLoader(__DIR__."/../Views");
-        $this->twig=new Environment($loader);
+        $loader = new FilesystemLoader(__DIR__ . "/../Views");
+        $this->twig = new Environment($loader);
 
         $loader = new FilesystemLoader(__DIR__ . '/../Views');
         $this->twig = new Environment($loader);
@@ -26,7 +26,8 @@ class Controller
 
     public function index()
     {        
-        echo $this->twig->render("home.html.twig", [
-        ]);
+        $datos = $this->myModel->pedirUltimas24h();
+        if (!$datos) $datos = [];
+        echo $this->twig->render("home.html.twig", compact("datos"));
     }
 }
