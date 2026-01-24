@@ -2,7 +2,7 @@
 
 ## 📝 Descripción
 
-Proyecto intermodular desarrollado por estudiantes de **2º DAW** que consiste en una aplicación web para visualizar datos meteorológicos en tiempo real recogidos por una estación meteorológica instalada en el **IES Gregorio Prieto** (Valdepeñas, Ciudad Real).
+Proyecto desarrollado por estudiantes de **2º DAW** que consiste en una aplicación web para visualizar datos meteorológicos en tiempo real recogidos por una estación meteorológica instalada en el **IES Gregorio Prieto** (Valdepeñas, Ciudad Real).
 
 La estación recopila datos de temperatura, presión atmosférica, humedad, velocidad del viento y precipitación, enviándolos a un servidor local para su almacenamiento y posterior visualización a través de una interfaz web moderna e intuitiva.
 
@@ -109,7 +109,7 @@ DB_PASSWORD=tu_contraseña
 ```
 
 #### 4️⃣ Crear la base de datos
-Crea una base de datos MySQL e importa el esquema necesario (tabla `datos` con campos: `id`, `temperatura`, `presion`, `humedad`, `viento`, `lluvia`, `fechaSistema`).
+Crea una base de datos MySQL e importa el esquema necesario (tabla `datos` con campos: `fechaSistema` (actúa como id), `temperatura`, `presion`, `humedad`, `viento`, `lluvia`, ).
 
 #### 5️⃣ Iniciar el servidor
 ```bash
@@ -158,19 +158,11 @@ temperatura=23.5&presion=1013.25&humedad=65&viento=15.2&lluvia=0
 
 ### Gráfico de Temperatura
 ![Gráfico interactivo de temperatura](ruta/a/captura2.png)
-*Gráfico detallado de temperatura con datos históricos*
+*Gráfico detallado de temperatura con datos históricos a modo de ejemplo*
 
-### Gráfico de Presión Atmosférica
-![Gráfico de presión](ruta/a/captura3.png)
-*Visualización de la presión atmosférica a lo largo del tiempo*
-
-### Gráfico de Humedad
-![Gráfico de humedad](ruta/a/captura4.png)
-*Datos de humedad relativa del ambiente*
-
-### Gráfico de Velocidad del Viento
-![Gráfico de viento](ruta/a/captura5.png)
-*Mediciones de velocidad del viento*
+### Homenaje al Proyecto Realizado en la 2020-21
+![Proyecto anterior](ruta/a/captura3.png)
+*Visualización de lo que hicieron los alumnos de ese curso relacionado con este proyecto*
 
 ## 🤝 Contribuir
 
@@ -202,4 +194,5 @@ Proyecto desarrollado por estudiantes de **2º DAW** del IES Gregorio Prieto:
 </p>
 
 ## Agradecimientos 🙏
- - 
+ - A nuestra profesora Paula por esta oportunidad de seguir descubriendo y aprendiendo en este sector tan apasionante.
+ - A los demás departamentos por la coordinación y disposición de llevar este proyecto a cabo.
