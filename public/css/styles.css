@@ -1,0 +1,67 @@
+:root {
+  --prieto-green: #8cc63f;
+  --prieto-green-dark: #76a935;
+  --prieto-green-light: #f4faeb;
+  --temp-color: #d84315;
+  --hum-color: #0277bd;
+  --press-color: #6a1b9a;
+  --wind-color: #37474f;
+  --rain-color: #283593;
+  --prieto-dark: #1a1d21;
+}
+
+.navbar {
+  border-bottom: 2px solid var(--prieto-green);
+}
+.card {
+  padding: 1rem;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.card .value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.card .label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+/* Colors for metrics */
+.bg-temp {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffccbc 100%);
+  color: var(--temp-color);
+}
+.bg-hum {
+  background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+  color: var(--hum-color);
+}
+.bg-press {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+  color: var(--press-color);
+}
+.bg-wind {
+  background: linear-gradient(135deg, #eceff1 0%, #cfd8dc 100%);
+  color: var(--wind-color);
+}
+.bg-rain {
+  background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+  color: var(--rain-color);
+}
+
+.img-logo {
+  width: 70px;
+  height: 70px;
+}
