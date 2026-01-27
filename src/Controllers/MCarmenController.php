@@ -24,11 +24,44 @@ class MCarmenController
 
     public function index() {}
 
-    public function temperatura()
-    {
+    
 
-        $temperatura = $this->myModel->obtenerTemperatura();
-        error_log("sale o no" . $temperatura);
-        echo $this->twig->render("temperatura.html.twig", ['datos' => $temperatura->toArray()]);
+    public function temperatura(){
+
+        $fechaInicio=filter_input(INPUT_POST,'inicio',FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $fechaFin=filter_input(INPUT_POST,'final',FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $datos=null;
+
+        if(!empty($fechaInicio) && !empty($fechaFin)){
+            $datos=$this->myModel->obtenerTemperaturaPorFecha($fechaInicio,$fechaFin);
+        }else{
+            $datos=$this->myModel->obtenerTemperatura();
+        }
+        
+        error_log("sale o no".$datos);
+        echo $this->twig->render("temperatura.html.twig",compact("datos"));
     }
+
+    public function lluvia(){
+
+        $fechaInicio=filter_input(INPUT_POST,'inicio',FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $fechaFin=filter_input(INPUT_POST,'final',FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $datos=null;
+
+        if(!empty($fechaInicio) && !empty($fechaFin)){
+            $datos=$this->myModel->obtenerLluviaPorFecha($fechaInicio,$fechaFin);
+        }else{
+            $datos=$this->myModel->obtenerLluvia();
+        }
+        
+        error_log("sale o no".$datos);
+        echo $this->twig->render("lluvia.html.twig",compact("datos"));
+    }
+
+    
+
 }

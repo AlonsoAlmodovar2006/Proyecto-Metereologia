@@ -9,7 +9,7 @@ const paletaColores = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-    cargarTemperatura();
+    cargarLluvia();
 });
 
 (() => {
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })()
 
-function cargarTemperatura() {
+function cargarLluvia() {
     const datosElement = JSON.parse(document.querySelector("#datos").innerHTML);
 
     const horas = datosElement.map(row => {
@@ -44,7 +44,7 @@ function cargarTemperatura() {
         });
     });
 
-    crearGrafico(datosElement, "temperatura", horas, paletaColores);
+    crearGrafico(datosElement, "lluvia", horas, paletaColores);
 }
 function crearGrafico(data, element, horas, colors) {
     const tituloFormateado = element.charAt(0).toUpperCase() + element.slice(1);
@@ -52,7 +52,7 @@ function crearGrafico(data, element, horas, colors) {
     new Chart(
         document.getElementById(element),
         {
-            type: 'line',
+            type: 'bar',
             data: {
                 labels: horas,
                 datasets: [
@@ -84,7 +84,7 @@ function crearGrafico(data, element, horas, colors) {
             },
             options: {
                 responsive: true,
-                
+
             }
         }
     );

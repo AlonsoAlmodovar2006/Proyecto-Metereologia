@@ -56,19 +56,34 @@ class Database
 
     public function obtenerTemperatura()
     {
-        // 1. Usamos get() en lugar de first() para traer una lista de registros
-        // Traemos los últimos 20 registros ordenados por fecha
-        $registros = Datos::orderBy('fechaSistema', 'desc')
-            ->take(20)
-            ->get();
-
-        // 2. Verificamos si la colección tiene datos
-        if ($registros->isNotEmpty()) {
-            // Devolvemos la colección invertida para que en la gráfica el tiempo vaya de izquierda a derecha
-            return $registros->reverse()->values();
-        }
-        return "No hay datos";
+        return Datos::select("fechaSistema", "temperatura")->get();
     }
+
+    public function obtenerTemperaturaPorFecha($fechaInicio,$fechaFinal){
+        if(isset($fechaInicio) && isset($fechaFinal)){
+            return Datos::whereBetween("fechaSistema", [$fechaInicio, $fechaFinal])->get();
+        }else if(isset($fechaInicio)){
+            return Datos::where("fechaSistema", ">", $fechaInicio)->get();
+        }else{
+            return Datos::where("fechaSistema", "<", $fechaFinal)->get();
+        }
+    }
+
+    public function obtenerLluvia()
+    {
+        return Datos::select("fechaSistema", "lluvia")->get();
+    }
+
+    public function obtenerLluviaPorFecha($fechaInicio,$fechaFinal){
+        if(isset($fechaInicio) && isset($fechaFinal)){
+            return Datos::whereBetween("fechaSistema", [$fechaInicio, $fechaFinal])->get();
+        }else if(isset($fechaInicio)){
+            return Datos::where("fechaSistema", ">", $fechaInicio)->get();
+        }else{
+            return Datos::where("fechaSistema", "<", $fechaFinal)->get();
+        }
+    }
+
     public function pedirUltimas24h()
     {
         $fechaActual = new DateTime();
