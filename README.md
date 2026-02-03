@@ -36,45 +36,7 @@ Este proyecto es una actualización y mejora de una iniciativa original comenzad
 
 ### Base de Datos
 - **MySQL** - Sistema de gestión de base de datos
-
-## 📂 Estructura del Proyecto
-
-```
-Proyecto-Metereologia/
-├── public/                 # Carpeta pública accesible
-│   ├── index.php          # Punto de entrada de la aplicación
-│   ├── css/
-│   │   └── styles.css     # Estilos personalizados
-│   ├── js/                # Scripts JavaScript
-│   │   ├── app.js         # Funciones generales
-│   │   ├── temperatura.js # Gráficos de temperatura
-│   │   ├── presion.js     # Gráficos de presión
-│   │   ├── humedad.js     # Gráficos de humedad
-│   │   └── viento.js      # Gráficos de viento
-│   └── img/               # Recursos de imagen
-├── src/
-│   ├── Controllers/       # Controladores MVC
-│   │   ├── Controller.php
-│   │   ├── AlonsoController.php
-│   │   ├── MCarmenController.php
-│   │   └── OrwinController.php
-│   ├── Models/            # Modelos de datos
-│   │   ├── Database.php
-│   │   └── Datos.php
-│   ├── Routes/            # Sistema de enrutamiento
-│   │   └── Router.php
-│   └── Views/             # Plantillas Twig
-│       ├── home.html.twig
-│       ├── temperatura.html.twig
-│       ├── presion.html.twig
-│       ├── humedad.html.twig
-│       ├── viento.html.twig
-│       └── partials/
-├── vendor/                # Dependencias de Composer
-├── composer.json          # Configuración de Composer
-├── .env                   # Variables de entorno (no incluido)
-└── README.md             # Este archivo
-```
+- **Docker** - El MySQL fue empaquetado en un contenedor docker con volúmenes
 
 ## ⚙️ Instalación
 
@@ -83,6 +45,7 @@ Proyecto-Metereologia/
 - **PHP 8.0** o superior
 - **Composer** instalado
 - **MySQL** o **MariaDB**
+- **Docker**
 - Servidor web (**Apache** o **Nginx**) o usar el servidor integrado de PHP
 
 ### Pasos de Instalación
@@ -134,6 +97,7 @@ La aplicación cuenta con las siguientes rutas principales:
 - **`/viento`** → Información sobre velocidad del viento
 - **`/datos`** → Endpoint API para recibir datos de la estación (POST)
 - **`/proyectoAnterior`** → Información sobre el proyecto original
+- **`/nosotros`** → Información sobre el trabajo de los diferentes grupos
 
 ## 📡 API de Datos
 
@@ -184,7 +148,7 @@ Puedes usar, copiar, modificar y distribuir este software libremente, siempre qu
 Proyecto desarrollado por estudiantes de **2º DAW** del IES Gregorio Prieto:
 
 - **Alonso Almodóvar Delgado** - [alonsoalmodovar09@gmail.com](mailto:alonsoalmodovar09@gmail.com)
-- **Mª Carmen García**
+- **Mª Carmen García** - [carmengarcianavarro19@gmail.com](mailto:carmengarcianavarro19@gmail.com)
 - **Orwin Zavaleta** - [orwinzavaleta@gmail.com](mailto:orwinzavaleta@gmail.com)
 
 ---
