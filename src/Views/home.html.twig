@@ -1,130 +1,172 @@
 {% extends "partials/layout.html.twig" %}
 
 {% block content %}
-<!-- CONTEXTO -->
-<div class="container">
-	<h4 class="display-6 fw-bold mb-2">Proyecto 2025-26</h4>
-	<p class="text-start">
-		Motivados por la novedosa FP Dual, se volvió a retomar un proyecto iniciado en la 2020-21 para actualizarlo y
-		mejorarlo. El proyecto consiste en la construcción de una estación metereológica en el IES Gregorio Prieto
-		(Valdepeñas, Ciudad Real). La estación recoge datos, como la cantidad de precipitación o el viento de cada día,
-		y se envían a un servidor localizado en ese mismo centro. Para así construir una web donde mostrar los datos y
-		revelar al mundo lo capacitados que estamos los alumnos de poder poner nuestro granito de arena en el
-		maravilloso mundo del Internet.
-	</p>
-</div>
-
-<!-- ÚLTIMAS 24 HORAS -->
-<div class="container">
-	<div class="row align-items-center py-3">
-		<div class="col-lg-8">
-			<h4 class="display-6 fw-bold mb-2">El clima en las últimas 24h</h4>
-		</div>
-		<div class="col-lg-4 text-lg-end">
-			<div class="p-3 d-inline-block">
-				<div class="d-flex align-items-center">
-					<div class="me-3 fs-2 text-success">
-						<i class="bi bi-clock"></i>
-					</div>
-					<div class="text-start">
-						<div class="small fw-bold text-uppercase opacity-50">Última actualización</div>
-						<div id="last-update" class="fw-bold">--:--</div>
-					</div>
+<!-- HERO SECTION -->
+<div class="hero-section mb-4">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-8">
+				<h1 class="display-5 fw-bold text-prieto mb-3">
+					<i class="bi bi-cloud-sun me-2"></i>El tiempo en Valdepeñas
+				</h1>
+				<p class="lead text-secondary">
+					Datos meteorológicos en tiempo real desde el IES Gregorio Prieto
+				</p>
+			</div>
+			<div class="col-lg-4 text-lg-end">
+				<div class="update-badge">
+					<i class="bi bi-clock me-2"></i>
+					<span class="small text-uppercase fw-bold">Última actualización</span>
+					<div id="last-update" class="fw-bold fs-5">--:--</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<!-- CARDS ÚLTIMAS 24 HORAS -->
-<div class="container">
-	<div class="row g-4 pb-3">
+
+<!-- CARDS MÉTRICAS -->
+<div class="container mb-5">
+	<div class="row g-3">
 		<!-- CARD TEMPERATURA -->
-		<div class="col-12 col-md-6 col-lg">
-			<div class="card bg-temp shadow-sm h-100">
-				<i class="bi bi-thermometer-half"></i>
-				<div class="value" id="current-temp">--°C</div>
-				<div class="label">Temperatura</div>
-			</div>
+		<div class="col-6 col-md-4 col-lg">
+			<a href="/temperatura" class="text-decoration-none">
+				<div class="metric-card bg-temp">
+					<div class="metric-icon">
+						<i class="bi bi-thermometer-half"></i>
+					</div>
+					<div class="metric-info">
+						<span class="metric-label">Temperatura</span>
+						<span class="metric-value" id="current-temp">--°C</span>
+					</div>
+				</div>
+			</a>
 		</div>
 		<!-- CARD HUMEDAD -->
-		<div class="col-12 col-md-6 col-lg">
-			<div class="card bg-hum shadow-sm h-100">
-				<i class="bi bi-moisture"></i>
-				<div class="value" id="current-humidity">--%</div>
-				<div class="label">Humedad</div>
-			</div>
+		<div class="col-6 col-md-4 col-lg">
+			<a href="/humedad" class="text-decoration-none">
+				<div class="metric-card bg-hum">
+					<div class="metric-icon">
+						<i class="bi bi-moisture"></i>
+					</div>
+					<div class="metric-info">
+						<span class="metric-label">Humedad</span>
+						<span class="metric-value" id="current-humidity">--%</span>
+					</div>
+				</div>
+			</a>
 		</div>
 		<!-- CARD PRESIÓN -->
-		<div class="col-12 col-md-6 col-lg">
-			<div class="card bg-press shadow-sm h-100">
-				<i class="bi bi-speedometer2"></i>
-				<div class="value" id="current-pressure">-- hPa</div>
-				<div class="label">Presión</div>
-			</div>
+		<div class="col-6 col-md-4 col-lg">
+			<a href="/presion" class="text-decoration-none">
+				<div class="metric-card bg-press">
+					<div class="metric-icon">
+						<i class="bi bi-speedometer2"></i>
+					</div>
+					<div class="metric-info">
+						<span class="metric-label">Presión</span>
+						<span class="metric-value" id="current-pressure">-- hPa</span>
+					</div>
+				</div>
+			</a>
 		</div>
 		<!-- CARD VIENTO -->
-		<div class="col-12 col-md-6 col-lg">
-			<div class="card bg-wind shadow-sm h-100">
-				<i class="bi bi-wind"></i>
-				<div class="value" id="current-wind">-- km/h</div>
-				<div class="label">Viento</div>
-			</div>
+		<div class="col-6 col-md-6 col-lg">
+			<a href="/viento" class="text-decoration-none">
+				<div class="metric-card bg-wind">
+					<div class="metric-icon">
+						<i class="bi bi-wind"></i>
+					</div>
+					<div class="metric-info">
+						<span class="metric-label">Viento</span>
+						<span class="metric-value" id="current-wind">-- km/h</span>
+					</div>
+				</div>
+			</a>
 		</div>
 		<!-- CARD LLUVIA -->
 		<div class="col-12 col-md-6 col-lg">
-			<div class="card bg-rain shadow-sm h-100">
-				<i class="bi bi-cloud-rain"></i>
-				<div class="value" id="current-rain">-- mm</div>
-				<div class="label">Lluvia Acumulada</div>
-			</div>
+			<a href="/lluvia" class="text-decoration-none">
+				<div class="metric-card bg-rain">
+					<div class="metric-icon">
+						<i class="bi bi-cloud-rain"></i>
+					</div>
+					<div class="metric-info">
+						<span class="metric-label">Lluvia</span>
+						<span class="metric-value" id="current-rain">-- mm</span>
+					</div>
+				</div>
+			</a>
 		</div>
 	</div>
 </div>
+
 <div class="d-none" id="datos">
 	{{ datos }}
 </div>
 
-<!-- Mejoras -->
-<!-- Integrantes -->
+<!-- SECCIÓN SOBRE EL PROYECTO -->
 <div class="container">
-	<h4 class="display-6 fw-bold mb-2">Integrantes del Grupo B</h4>
-	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-		<div class="col">
-			<div class="card shadow-sm h-100">
-				<img src="img/logo.png" class="card-img-top img-fluid" alt="Alonso Almodóvar">
-				<div class="card-body text-center">
-					<h5 class="card-title">Alonso Almodóvar</h5>
-				</div>
-				<div class="card-footer bg-transparent border-0 text-center">
-					<small class="text-muted">2006</small>
-				</div>
+	<div class="info-section">
+		<div class="row align-items-center">
+			<div class="col-lg-7">
+				<h2 class="fw-bold mb-3">
+					<i class="bi bi-info-circle me-2 text-prieto"></i>Proyecto 2025-26
+				</h2>
+				<p class="text-secondary lh-lg">
+					Motivados por la novedosa FP Dual, se volvió a retomar un proyecto iniciado en la 2020-21 para actualizarlo y
+					mejorarlo. El proyecto consiste en la construcción de una estación meteorológica en el IES Gregorio Prieto
+					(Valdepeñas, Ciudad Real). La estación recoge datos, como la cantidad de precipitación o el viento de cada día,
+					y se envían a un servidor localizado en ese mismo centro.
+				</p>
+				<a href="/nosotros" class="btn btn-prieto">
+					<i class="bi bi-people me-2"></i>Conoce al equipo
+				</a>
 			</div>
-		</div>
-		<div class="col">
-			<div class="card shadow-sm h-100">
-				<img src="img/logo.png" class="card-img-top img-fluid" alt="Mari Carmen García">
-				<div class="card-body text-center">
-					<h5 class="card-title">Mari Carmen García</h5>
-				</div>
-				<div class="card-footer bg-transparent border-0 text-center">
-					<small class="text-muted">1996</small>
-				</div>
-			</div>
-		</div>
-		<div class="col">
-			<div class="card shadow-sm h-100">
-				<img src="img/logo.png" class="card-img-top img-fluid" alt="Orwin Zabaleta">
-				<div class="card-body text-center">
-					<h5 class="card-title">Orwin Zavaleta</h5>
-				</div>
-				<div class="card-footer bg-transparent border-0 text-center">
-					<small class="text-muted">2007</small>
-				</div>
+			<div class="col-lg-5 text-center mt-4 mt-lg-0">
+				<img src="/img/logoN.png" alt="IES Gregorio Prieto" class="img-fluid" style="max-width: 200px; opacity: 0.8;">
 			</div>
 		</div>
 	</div>
 </div>
-<!-- Fotos -->
+
+<!-- ENLACES RÁPIDOS -->
+<div class="container mt-5">
+	<h3 class="fw-bold mb-4">
+		<i class="bi bi-graph-up me-2 text-prieto"></i>Explorar mediciones
+	</h3>
+	<div class="row g-3">
+		<div class="col-6 col-md-4 col-lg">
+			<a href="/temperatura" class="quick-link quick-link-temp">
+				<i class="bi bi-thermometer-half"></i>
+				<span>Temperatura</span>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg">
+			<a href="/humedad" class="quick-link quick-link-hum">
+				<i class="bi bi-moisture"></i>
+				<span>Humedad</span>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg">
+			<a href="/presion" class="quick-link quick-link-press">
+				<i class="bi bi-speedometer2"></i>
+				<span>Presión</span>
+			</a>
+		</div>
+		<div class="col-6 col-md-6 col-lg">
+			<a href="/viento" class="quick-link quick-link-wind">
+				<i class="bi bi-wind"></i>
+				<span>Viento</span>
+			</a>
+		</div>
+		<div class="col-12 col-md-6 col-lg">
+			<a href="/lluvia" class="quick-link quick-link-rain">
+				<i class="bi bi-cloud-rain"></i>
+				<span>Lluvia</span>
+			</a>
+		</div>
+	</div>
+</div>
 
 {% endblock %}
 {% block javascripts %}

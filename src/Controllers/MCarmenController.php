@@ -62,6 +62,9 @@ class MCarmenController
         echo $this->twig->render("lluvia.html.twig",compact("datos"));
     }
 
-    
+    public function lanzarNosotros()
+    {
+        echo $this->twig->render("nosotros.html.twig");
+    }
 
 }

@@ -1,22 +1,72 @@
 {% extends "partials/layout.html.twig" %}
 
 {% block content %}
-	<div
-		class="container">
-		<!-- Contexto -->
-		<h1>De Donde Partimos</h1>
-		<h2>Proyecto 2020-21</h2>
-		<p class="text-start">La estación meteorológica fue un proyecto STEAM (Science, Technology, Engineering, Arts and Mathematics) desarrollado durante el curso 2020-2021, 
-			                            en el que participaron distintos grupos de alumnado de Bachillerato y Formación Profesional, tanto de Grado Básico como de Grado Superior. 
-			                            El objetivo principal del proyecto fue el diseño y la construcción de una estación meteorológica capaz de recoger 
-			                            y enviar datos para su análisis y estudio en el contexto del cambio climático. 
-			                            Los datos generados por la estación se transmitían, por un lado, a la Escuela de Caminos de Ciudad Real de la Universidad de Castilla-La Mancha 
-			                            y, por otro, a un servidor propio del centro, desarrollado por el alumnado de 1.º de Desarrollo de Aplicaciones Multiplataforma, 
-			                            donde se almacenaban y visualizaban los datos recibidos en tiempo real.
+<!-- HERO PROYECTO ANTERIOR -->
+<div class="hero-section mb-5">
+	<div class="container">
+		<h1 class="display-5 fw-bold text-prieto mb-3">
+			<i class="bi bi-clock-history me-2"></i>De Donde Partimos
+		</h1>
+		<p class="lead text-secondary">
+			Proyecto STEAM 2020-21 - Los orígenes de nuestra estación meteorológica
 		</p>
-		<!-- Fotos -->
-	    <!-- Carrusel -->
-		    <!-- Capturas de la Antigua Web-->
 	</div>
+</div>
+
+<!-- CONTENIDO PRINCIPAL -->
+<div class="container">
+	<div class="info-section mb-5">
+		<div class="row align-items-center">
+			<div class="col-lg-8">
+				<h2 class="fw-bold mb-4">
+					<i class="bi bi-rocket-takeoff me-2 text-prieto"></i>Proyecto 2020-21
+				</h2>
+				<p class="text-secondary lh-lg fs-5">
+					La estación meteorológica fue un proyecto <strong>STEAM</strong> (Science, Technology, Engineering, Arts and Mathematics) 
+					desarrollado durante el curso 2020-2021, en el que participaron distintos grupos de alumnado de Bachillerato 
+					y Formación Profesional, tanto de Grado Básico como de Grado Superior.
+				</p>
+				<p class="text-secondary lh-lg">
+					El objetivo principal del proyecto fue el diseño y la construcción de una estación meteorológica capaz de recoger 
+					y enviar datos para su análisis y estudio en el contexto del cambio climático.
+				</p>
+				<p class="text-secondary lh-lg">
+					Los datos generados por la estación se transmitían, por un lado, a la <strong>Escuela de Caminos de Ciudad Real</strong> 
+					de la Universidad de Castilla-La Mancha y, por otro, a un servidor propio del centro, desarrollado por el alumnado 
+					de 1.º de Desarrollo de Aplicaciones Multiplataforma, donde se almacenaban y visualizaban los datos recibidos en tiempo real.
+				</p>
+			</div>
+			<div class="col-lg-4 text-center mt-4 mt-lg-0">
+				<div class="year-badge">
+					<span class="year">2020</span>
+					<span class="separator">-</span>
+					<span class="year">2021</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- ESPACIO PARA FOTOS Y CARRUSEL -->
+	<div class="info-section">
+		<h3 class="fw-bold mb-4">
+			<i class="bi bi-images me-2 text-prieto"></i>Galería del Proyecto
+		</h3>
+		<p class="text-secondary mb-4">Imágenes y capturas del proyecto original.</p>
+		<!-- Aquí puedes añadir el carrusel de fotos -->
+		<div class="text-center py-5 bg-light rounded-3">
+			<i class="bi bi-image text-secondary" style="font-size: 4rem; opacity: 0.3;"></i>
+			<p class="text-secondary mt-3">Próximamente: Galería de imágenes</p>
+		</div>
+	</div>
+</div>
+
+<!-- ENLACE DE REGRESO -->
+<div class="container mt-5">
+	<div class="text-center">
+		<a href="/nosotros" class="btn btn-outline-prieto btn-lg">
+			<i class="bi bi-arrow-right me-2"></i>Ver el equipo actual
+		</a>
+	</div>
+</div>
 {% endblock %}
 {% block javascripts %}{% endblock %}
