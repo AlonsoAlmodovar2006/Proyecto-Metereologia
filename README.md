@@ -117,7 +117,7 @@ temperatura=23.5&presion=1013.25&humedad=65&viento=15.2&lluvia=0
 ## 📸 Capturas de Pantalla
 
 ### Página Principal
-![Página principal con datos de las últimas 24 horas](ruta/a/captura1.png)
+![Página principal con datos de las últimas 24 horas](public/img/home.png)
 *Visualización de los datos meteorológicos de las últimas 24 horas*
 
 ### Gráfico de Temperatura
