@@ -21,6 +21,7 @@ class Router
         $this->routes["/viento"] = ["controller" => "AlonsoController", "action" => "obtenerDatosViento"];
         $this->routes["/lluvia"] = ["controller" =>"MCarmenController", "action" => "lluvia"];
         $this->routes["/proyectoAnterior"] = ["controller" => "AlonsoController", "action" => "lanzarProyectoAnterior"];
+        $this->routes["/nosotros"] = ["controller" => "MCarmenController", "action" => "lanzarNosotros"];
     }
 
     public function handleRequest()

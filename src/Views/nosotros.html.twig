@@ -1,0 +1,149 @@
+{% extends "partials/layout.html.twig" %}
+{% block content %}
+
+<!-- HERO SOBRE NOSOTROS -->
+<div class="hero-section mb-5">
+	<div class="container">
+		<h1 class="display-5 fw-bold text-prieto mb-3">
+			<i class="bi bi-people-fill me-2"></i>Sobre Nosotros
+		</h1>
+		<p class="lead text-secondary">
+			Conoce al equipo detrás de la estación meteorológica del IES Gregorio Prieto
+		</p>
+	</div>
+</div>
+
+<!-- DESCRIPCIÓN DEL PROYECTO -->
+<div class="container mb-5">
+	<div class="info-section">
+		<h2 class="fw-bold mb-4">
+			<i class="bi bi-journal-text me-2 text-prieto"></i>Nuestro Proyecto
+		</h2>
+		<p class="text-secondary lh-lg fs-5">
+			<!-- ESPACIO PARA TEXTO DESCRIPTIVO DEL PROYECTO -->
+			<!-- Aquí puedes añadir la descripción extensa del proyecto -->
+		</p>
+	</div>
+</div>
+
+<!-- CICLOS PARTICIPANTES -->
+<div class="container mb-5">
+	<h2 class="fw-bold mb-4">
+		<i class="bi bi-mortarboard me-2 text-prieto"></i>Ciclos Formativos Participantes
+	</h2>
+	<p class="text-secondary mb-4">
+		Este proyecto interdisciplinar ha contado con la colaboración de diferentes ciclos formativos, 
+		uniendo conocimientos de distintas áreas para crear una estación meteorológica completa.
+	</p>
+	
+	<div class="row g-4">
+		<!-- ELECTRÓNICA -->
+		<div class="col-md-6 col-lg-3">
+			<div class="cycle-card">
+				<div class="cycle-icon bg-electronics">
+					<i class="bi bi-cpu"></i>
+				</div>
+				<h4 class="fw-bold">Electrónica</h4>
+				<p class="text-secondary small">
+					<!-- Descripción del rol de Electrónica en el proyecto -->
+				</p>
+			</div>
+		</div>
+		
+		<!-- AUTOMOCIÓN -->
+		<div class="col-md-6 col-lg-3">
+			<div class="cycle-card">
+				<div class="cycle-icon bg-automotive">
+					<i class="bi bi-gear"></i>
+				</div>
+				<h4 class="fw-bold">Automoción</h4>
+				<p class="text-secondary small">
+					<!-- Descripción del rol de Automoción en el proyecto -->
+				</p>
+			</div>
+		</div>
+		
+		<!-- FÍSICA Y QUÍMICA -->
+		<div class="col-md-6 col-lg-3">
+			<div class="cycle-card">
+				<div class="cycle-icon bg-science">
+					<i class="bi bi-droplet"></i>
+				</div>
+				<h4 class="fw-bold">Física y Química</h4>
+				<p class="text-secondary small">
+					<!-- Descripción del rol de F&Q en el proyecto -->
+				</p>
+			</div>
+		</div>
+		
+		<!-- 2º DAW -->
+		<div class="col-md-6 col-lg-3">
+			<div class="cycle-card">
+				<div class="cycle-icon bg-daw">
+					<i class="bi bi-code-slash"></i>
+				</div>
+				<h4 class="fw-bold">2º DAW</h4>
+				<p class="text-secondary small">
+					<!-- Descripción del rol de 2º DAW en el proyecto -->
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- INTEGRANTES DEL GRUPO B -->
+<div class="container mb-5">
+	<h2 class="fw-bold mb-4">
+		<i class="bi bi-person-badge me-2 text-prieto"></i>Integrantes del Grupo B - 2º DAW
+	</h2>
+	<p class="text-secondary mb-4">
+		El equipo de desarrollo web encargado de construir y mantener esta plataforma.
+	</p>
+	
+	<div class="row g-4 justify-content-center">
+		<div class="col-sm-6 col-lg-4">
+			<div class="team-card">
+				<div class="team-avatar">
+					<img src="/img/logo.png" alt="Alonso Almodóvar">
+				</div>
+				<h5 class="fw-bold mb-1">Alonso Almodóvar</h5>
+				<span class="badge bg-prieto">Desarrollador</span>
+			</div>
+		</div>
+		<div class="col-sm-6 col-lg-4">
+			<div class="team-card">
+				<div class="team-avatar">
+					<img src="/img/logo.png" alt="Mari Carmen García">
+				</div>
+				<h5 class="fw-bold mb-1">Mari Carmen García</h5>
+				<span class="badge bg-prieto">Desarrolladora</span>
+			</div>
+		</div>
+		<div class="col-sm-6 col-lg-4">
+			<div class="team-card">
+				<div class="team-avatar">
+					<img src="/img/logo.png" alt="Orwin Zavaleta">
+				</div>
+				<h5 class="fw-bold mb-1">Orwin Zavaleta</h5>
+				<span class="badge bg-prieto">Desarrollador</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ENLACE AL PROYECTO ANTERIOR -->
+<div class="container">
+	<div class="info-section text-center">
+		<h3 class="fw-bold mb-3">
+			<i class="bi bi-clock-history me-2 text-prieto"></i>¿Quieres conocer cómo empezó todo?
+		</h3>
+		<p class="text-secondary mb-4">
+			Descubre el proyecto original de 2020-21 que sentó las bases de esta estación meteorológica.
+		</p>
+		<a href="/proyectoAnterior" class="btn btn-prieto btn-lg">
+			<i class="bi bi-arrow-left me-2"></i>Ver Proyecto 2020-21
+		</a>
+	</div>
+</div>
+
+{% endblock %}

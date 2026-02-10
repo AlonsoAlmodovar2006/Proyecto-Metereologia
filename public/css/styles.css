@@ -1,45 +1,131 @@
 :root {
+  /* Paleta principal - IES Gregorio Prieto */
   --prieto-green: #8cc63f;
-  --prieto-green-dark: #76a935;
-  --prieto-green-light: #f4faeb;
+  --prieto-green-dark: #6ba32d;
+  --prieto-green-light: #e8f5e0;
+  --prieto-dark: #1a1d21;
+  --prieto-gray: #5a6268;
+  
+  /* Colores de mediciones */
   --temp-color: #d84315;
   --hum-color: #0277bd;
   --press-color: #6a1b9a;
   --wind-color: #37474f;
   --rain-color: #283593;
-  --prieto-dark: #1a1d21;
 }
 
+/* ========== NAVBAR ========== */
 .navbar {
-  border-bottom: 2px solid var(--prieto-green);
+  border-bottom: 3px solid var(--prieto-green);
+  background: #fff !important;
 }
-.card {
-  padding: 1rem;
-  border-radius: 18px;
+
+.nav-link {
+  color: var(--prieto-dark) !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--prieto-green-dark) !important;
+}
+
+.dropdown-item:hover {
+  background-color: var(--prieto-green-light) !important;
+  color: var(--prieto-green-dark) !important;
+}
+
+.img-logo {
+  width: 60px;
+  height: 60px;
+}
+
+/* ========== HERO SECTION ========== */
+.hero-section {
+  background: linear-gradient(135deg, var(--prieto-green-light) 0%, #fff 100%);
+  padding: 2rem 0;
+  border-radius: 0 0 2rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.text-prieto {
+  color: var(--prieto-green-dark) !important;
+}
+
+.bg-prieto {
+  background-color: var(--prieto-green) !important;
+}
+
+.update-badge {
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  display: inline-block;
+  color: var(--prieto-green-dark);
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background-color: var(--prieto-dark) !important;
+}
+
+/* ========== METRIC CARDS (Home) ========== */
+.metric-card {
+  padding: 1.25rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.metric-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: rgba(255,255,255,0.6);
+}
+
+.metric-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
-.card i {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-.card .value {
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1;
-}
-.card .label {
-  font-size: 0.8rem;
+.metric-label {
+  font-size: 0.75rem;
   text-transform: uppercase;
   font-weight: 600;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
-/* Colors for metrics */
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.metric-icon-large {
+  width: 70px;
+  height: 70px;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+/* ========== BACKGROUND COLORS ========== */
 .bg-temp {
   background: linear-gradient(135deg, #fff3e0 0%, #ffccbc 100%);
   color: var(--temp-color);
@@ -61,7 +147,262 @@
   color: var(--rain-color);
 }
 
-.img-logo {
-  width: 70px;
-  height: 70px;
+/* ========== INFO SECTION ========== */
+.info-section {
+  background: var(--prieto-green-light);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* ========== BUTTONS ========== */
+.btn-prieto {
+  background: var(--prieto-green) !important;
+  color: white !important;
+  border: none;
+  border-color: var(--prieto-green) !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-prieto:hover {
+  background: var(--prieto-green-dark) !important;
+  border-color: var(--prieto-green-dark) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(140, 198, 63, 0.4);
+}
+
+.btn-outline-prieto {
+  background: transparent !important;
+  color: var(--prieto-green-dark) !important;
+  border: 2px solid var(--prieto-green) !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-prieto:hover {
+  background: var(--prieto-green) !important;
+  color: white !important;
+}
+
+.badge.bg-prieto {
+  background-color: var(--prieto-green) !important;
+}
+
+/* ========== QUICK LINKS ========== */
+.quick-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid #eee;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.quick-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.quick-link i {
+  font-size: 1.5rem;
+}
+
+.quick-link-temp { border-color: #ffccbc; }
+.quick-link-temp:hover { background: #fff3e0; color: var(--temp-color); }
+.quick-link-temp i { color: var(--temp-color); }
+
+.quick-link-hum { border-color: #b3e5fc; }
+.quick-link-hum:hover { background: #e1f5fe; color: var(--hum-color); }
+.quick-link-hum i { color: var(--hum-color); }
+
+.quick-link-press { border-color: #e1bee7; }
+.quick-link-press:hover { background: #f3e5f5; color: var(--press-color); }
+.quick-link-press i { color: var(--press-color); }
+
+.quick-link-wind { border-color: #cfd8dc; }
+.quick-link-wind:hover { background: #eceff1; color: var(--wind-color); }
+.quick-link-wind i { color: var(--wind-color); }
+
+.quick-link-rain { border-color: #c5cae9; }
+.quick-link-rain:hover { background: #e8eaf6; color: var(--rain-color); }
+.quick-link-rain i { color: var(--rain-color); }
+
+/* ========== FILTER CARD (Measurement pages) ========== */
+.filter-card {
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  border-left: 4px solid var(--prieto-green);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+}
+
+.filter-card .form-control {
+  border: 2px solid #e0e0e0;
+  border-radius: 0.75rem;
+}
+
+.filter-card .form-control:focus {
+  border-color: var(--prieto-green);
+  box-shadow: 0 0 0 0.2rem rgba(140, 198, 63, 0.25);
+}
+
+/* ========== CHART CONTAINER ========== */
+.chart-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* ========== CYCLE CARDS (About page) ========== */
+.cycle-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-top: 3px solid var(--prieto-green);
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.cycle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.cycle-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1rem;
+  color: white;
+}
+
+.bg-electronics { background: linear-gradient(135deg, #42a5f5, #1976d2); }
+.bg-automotive { background: linear-gradient(135deg, #ff7043, #e64a19); }
+.bg-science { background: linear-gradient(135deg, #ab47bc, #7b1fa2); }
+.bg-daw { background: linear-gradient(135deg, #66bb6a, #43a047); }
+
+/* ========== TEAM CARDS ========== */
+.team-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.team-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  border: 4px solid var(--prieto-green-light);
+}
+
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ========== YEAR BADGE (Project page) ========== */
+.year-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--prieto-green) 0%, var(--prieto-green-dark) 100%);
+  color: #fff;
+  padding: 1.5rem 2.5rem;
+  border-radius: 1.5rem;
+  font-weight: bold;
+}
+
+.year-badge .year {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.year-badge .separator {
+  font-size: 2rem;
+}
+
+/* ========== LEGACY CARD STYLES (compatibility) ========== */
+.card {
+  padding: 1rem;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card .value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.card .label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 1.5rem 0;
+    border-radius: 0 0 1rem 1rem;
+  }
+  
+  .info-section {
+    padding: 1.5rem;
+  }
+  
+  .metric-value {
+    font-size: 1.25rem;
+  }
+  
+  .filter-card {
+    padding: 1rem;
+  }
+  
+  .chart-container {
+    padding: 1rem;
+  }
 }
