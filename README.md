@@ -117,15 +117,15 @@ temperatura=23.5&presion=1013.25&humedad=65&viento=15.2&lluvia=0
 ## 📸 Capturas de Pantalla
 
 ### Página Principal
-![Página principal con datos de las últimas 24 horas](ruta/a/captura1.png)
+![Página principal con datos de las últimas 24 horas](public/img/Home.png)
 *Visualización de los datos meteorológicos de las últimas 24 horas*
 
 ### Gráfico de Temperatura
-![Gráfico interactivo de temperatura](ruta/a/captura2.png)
+![Gráfico interactivo de temperatura](public/img/Temperatura.png)
 *Gráfico detallado de temperatura con datos históricos a modo de ejemplo*
 
 ### Homenaje al Proyecto Realizado en la 2020-21
-![Proyecto anterior](ruta/a/captura3.png)
+![Proyecto anterior](public/img/ProyectoAnterior.png)
 *Visualización de lo que hicieron los alumnos de ese curso relacionado con este proyecto*
 
 ## 🤝 Contribuir
