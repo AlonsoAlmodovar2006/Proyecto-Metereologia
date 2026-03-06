@@ -20,7 +20,7 @@ class OrwinController
         $loader = new FilesystemLoader(__DIR__ . "/../Views");
         $this->twig = new Environment($loader);
 
-        $this->myModel = new Database($_ENV["DB_HOST"], $_ENV["DB_PORT"], $_ENV["DB_DATABASE"], $_ENV["DB_USERNAME"], $_ENV["DB_PASSWORD"]);
+        $this->myModel =  new Database(getenv("DB_HOST"), getenv("DB_PORT"), getenv("DB_DATABASE"), getenv("DB_USERNAME"), getenv("DB_PASSWORD"));
     }
 
     public function obtenerDatosPresion()

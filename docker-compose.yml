@@ -1,0 +1,52 @@
+services:
+  db-meteo:
+    image: mariadb:10.11
+    container_name: meteo-db
+    restart: unless-stopped
+    command: [
+      "mysqld",
+      "--performance_schema=OFF",        
+      "--innodb_buffer_pool_size=24M",   
+      "--max_connections=5"              
+    ]
+    environment:
+      - MYSQL_DATABASE=metereologia
+      - MYSQL_USER=orwin
+      - MYSQL_PASSWORD=tu_password_seguro
+      - MYSQL_ROOT_PASSWORD=root_password_seguro
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      - ./meteo.sql:/docker-entrypoint-initdb.d/1-init.sql:ro
+    networks:
+      - apps-net
+
+  app-meteo:
+    image: serversideup/php:8.4-frankenphp
+    container_name: meteo-app
+    restart: unless-stopped
+    depends_on:
+      - db-meteo
+    networks:
+      - apps-net
+      - proxy-net
+    volumes:
+      - ./:/var/www/html:rw
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    environment:
+      - PUID=33
+      - PGID=33
+      - VIRTUAL_HOST=meteo.${HOSTNAME}
+      - VIRTUAL_PORT=8080
+      - LETSENCRYPT_HOST=meteo.${HOSTNAME}
+      - LETSENCRYPT_EMAIL=${ACME_EMAIL}
+      - DB_HOST=db-meteo
+      - DB_DATABASE=metereologia
+      - DB_USERNAME=orwin
+      - DB_PASSWORD=tu_password_seguro
+      - DB_PORT=3306
+
+networks:
+  proxy-net:
+    external: true
+  apps-net:
+    external: true
