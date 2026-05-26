@@ -1,0 +1,6 @@
+# Front Controller Pattern: Redirigir rutas no-existentes a index.php
+@notFile {
+    not file {path}
+    not path /index.php
+}
+rewrite @notFile /index.php
